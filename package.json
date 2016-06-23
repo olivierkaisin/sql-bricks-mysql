@@ -1,0 +1,27 @@
+{
+  "name": "sql-bricks-mysql",
+  "version": "0.0.1",
+  "description": "MySQL extension for SQL-bricks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olivier Kaisin",
+  "license": "MIT",
+  "dependencies": {
+    "sql-bricks": "^1.3.0"
+  },
+  "keywords": [
+    "sql",
+    "generation",
+    "generate",
+    "mysql"
+  ],
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olivierkaisin/sql-bricks-mysql.git"
+  }
+}
