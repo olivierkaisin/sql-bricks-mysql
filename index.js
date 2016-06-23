@@ -5,7 +5,7 @@ const sql = require('sql-bricks');
 const Select = sql.select;
 
 sql.conversions.Date = function (value) {
-  return value.toISOString();
+  return '"' + value.toISOString() + '"';
 };
 
 Select.prototype.limit = function (val) {
