@@ -1,6 +1,7 @@
 'use strict';
 
 const sql = require('sql-bricks');
+const reservedWords = require('./reserved-words');
 
 const Select = sql.select;
 
@@ -29,5 +30,9 @@ Select.defineClause(
   '{{#ifNotNull _offset}}OFFSET {{_offset}}{{/ifNotNull}}',
   { after: 'limit' }
 );
+
+sql._autoQuoteChar = '`';
+sql._reserved = sql._reserved.concat(reservedWords);
+
 
 module.exports = sql;
