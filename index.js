@@ -1,10 +1,13 @@
 'use strict';
 
 const _ = require('lodash');
-const sql = _.clone( require('sql-bricks') ); // No-conflict
-const reservedWords = require('./reserved-words');
 
+const reservedWords = require('./lib/reservedWords');
+const requireLibrary = require('./lib/requireLibrary');
+
+const sql = requireLibrary();
 const Select = sql.select;
+
 
 // Support proper Date conversion
 sql.conversions.Date = function (value) {
@@ -33,11 +36,13 @@ Select.defineClause(
   { after: 'limit' }
 );
 
+
 // Add support for reserved words escaping
 sql._autoQuoteChar = '`';
 
 for (let word of reservedWords) {
   sql._reserved[word] = word;
 }
+
 
 module.exports = sql;
