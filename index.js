@@ -11,7 +11,7 @@ const Select = sql.select;
 
 // Support proper Date conversion
 sql.conversions.Date = function (value) {
-  return '"' + value.toISOString() + '"';
+  return '"' + value.toISOString().slice(0, 19).replace('T', ' ') + '"';
 };
 
 Select.prototype.limit = function (val) {
